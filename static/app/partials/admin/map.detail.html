@@ -1,0 +1,19 @@
+Map Detail
+
+
+<h3>Zones</h3>
+
+<div ng-show="!zones.length">
+  No zones to show.  <button ng-click="generateZones()">Generate Zones</button>
+</div>
+
+<table>
+  <tr ng-repeat="zonerow in zonemap">
+    <td ng-repeat="zone in zonerow" ng-class="{ 'zoneControlled': zone.controlled, 'zoneUncontrolled': !zone.controlled }">
+      <p><b>{{ zone.title }}</b></p>
+      <p>ENERGY: {{ zone.energy }}</p>
+      <p>MATERIALS: {{ zone.materials }}</p>
+      <p>CONTROL: {{ zone.control }}</p>
+    </td>
+  </tr>
+</table>

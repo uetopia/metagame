@@ -1,0 +1,161 @@
+<!doctype html>
+<html ng-app="angular-google-api-example">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+
+    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase-database.js"></script>
+
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCb01-j151m6HtZsG6mOpi1RKsHBjtNAh0",
+        authDomain: "ue4topia-metagame.firebaseapp.com",
+        databaseURL: "https://ue4topia-metagame.firebaseio.com",
+        projectId: "ue4topia-metagame",
+        storageBucket: "ue4topia-metagame.appspot.com",
+        messagingSenderId: "397698635131"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>UETOPIA MetaGame - Example</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/app/css/style.css">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">UETOPIA MetaGame - Example</a>
+
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <!-- show title if logged in -->
+            <li class="ng-cloak" ng-show="userAccount.admin">
+              <a ui-sref="adminHome">Admin</a>
+            </li>
+            <li class="ng-cloak" ng-show="userAccount">
+
+              <!-- show session data -->
+              <a ng-show="userAccount" href="#/profile"><md-button> {{ userAccount.title }}</md-button></a>
+
+            </li>
+            <li class="ng-cloak" ng-show="user">
+              <a href="" ng-click="logout()">logout</a></li>
+            </li>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+
+      <div id="logged-out" ng-show="!user">
+        <div id="firebaseui-auth-container"></div>
+      </div>
+
+      <!-- Logged In -->
+      <div id="logged-in" ng-show="user">
+        <div class="seasonPositioning" ng-show="activeSeason.currentRoundPositioning">
+          Season: {{ activeSeason.title }} Round: {{ activeSeason.currentRound }}
+          <div>POSITIONING
+            <span ng-show="userAccount.uetopia_connected">
+              <span ng-show="!userAccount.roundActionUsed">
+                <span ng-show="userAccount.metaGameActive">
+                - WAITING FOR YOUR MOVE
+                </span>
+                <span ng-show="!userAccount.metaGameActive">
+                - Activate Meta Mode in game.
+                </span>
+              </span>
+            </span>
+          </div>
+
+        </div>
+        <div class="seasonCombat" ng-show="activeSeason.currentRoundCombat">
+          Season: {{ activeSeason.title }} Round: {{ activeSeason.currentRound }}
+          <div>
+            COMBAT
+          </div>
+        </div>
+        <div class="seasonResults" ng-show="activeSeason.currentRoundResults">
+          Season: {{ activeSeason.title }} Round: {{ activeSeason.currentRound }}
+          <div>
+            RESULTS
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+      <div ui-view></div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Footer Area</p>
+      </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+
+    <script src="/app/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+    <script src="/app/js/app.js"></script>
+    <script src="/app/js/controller.js"></script>
+    <script src="/app/js/router.js"></script>
+    <script src="/app/js/controller.home.js"></script>
+    <script src="/app/js/controller.uetopia.connect.js"></script>
+
+    <script src="/app/js/controller.region.detail.js"></script>
+    <script src="/app/js/controller.map.detail.js"></script>
+
+    <script src="/app/js/controller.edit.js"></script>
+
+    <script src="/app/js/admin/controller.admin.home.js"></script>
+
+    <script src="/app/js/admin/controller.region.create.js"></script>
+    <script src="/app/js/admin/controller.region.detail.js"></script>
+
+    <script src="/app/js/admin/controller.season.create.js"></script>
+    <script src="/app/js/admin/controller.season.detail.js"></script>
+
+    <script src="/app/js/admin/controller.map.create.js"></script>
+    <script src="/app/js/admin/controller.map.detail.js"></script>
+
+    <script src="/app/js/controller.faction.detail.js"></script>
+
+        <script src="/app/js/service.endpoints.js"></script>
+    <script src="/app/js/service.models.js"></script>
+  </body>
+</html>

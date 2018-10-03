@@ -1,0 +1,20 @@
+<h1>{{ map.title }}</h1>
+
+<table>
+  <tr ng-repeat="zonerow in zonemap">
+    <td ng-repeat="zone in zonerow" ng-class="{ 'zoneControlled': zone.controlled, 'zoneUncontrolled': !zone.controlled, 'zoneInvalid': !zone.validZone }">
+      <div class="zoneTitle">{{ zone.title }}</div>
+      <div ng-show="zone.controlled">{{ zone.factionTag }} {{ zone.teamTitle }}</div>
+      <p ng-show="zone.userCaptainKeyId==userAccount.key_id">DEFENDING</p>
+      <p>ENERGY: {{ zone.energy }}</p>
+      <p>MATERIALS: {{ zone.materials }}</p>
+      <p>CONTROL: {{ zone.control }}</p>
+      <div ng-show="!userAccount.roundActionUsed && userAccount.metaGameActive && zone.validZone && activeSeason.currentRoundPositioning && zone.userCaptainKeyId!=userAccount.key_id">
+        <form class="form-horizontal" name="bidForm">
+          <input ng-model="zone.bidAmount" name="bidAmount" type="number" size="6">
+          <button type="submit" ng-click="submitBid(zone)" >BID</button>
+        </form>
+      </div>
+    </td>
+  </tr>
+</table>

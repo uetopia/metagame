@@ -1,0 +1,53 @@
+<button style="margin-bottom: 20px;" class="btn btn-default" type="submit" ui-sref="home">Back to home</button>
+
+<form class="form-horizontal" ng-submit="submitAdd()" name="addMap">
+<fieldset>
+
+
+
+<p>Title</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addMap.title.$valid}">
+  <input ng-model="map.title" name="title" type="text" required class="form-control input-md">
+</div>
+
+<p>Description</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addMap.description.$valid}">
+  <input ng-model="map.description" name="description" type="text" required class="form-control input-md">
+</div>
+
+<p>Region</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addMap.regionKeyId.$valid}">
+
+  <select ng-model="map.regionKeyId">
+    <option ng-repeat="region in regions" value="{{region.key_id}}">{{region.title}}</option>
+  </select>
+
+</div>
+
+<p>Season</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addMap.seasonKeyId.$valid}">
+  <select ng-model="map.seasonKeyId">
+    <option ng-repeat="season in seasons" value="{{season.key_id}}">{{season.title}}</option>
+  </select>
+  
+</div>
+
+<p>Horizontal Zone Count</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addMap.zoneCountHorizontal.$valid}">
+  <input ng-model="map.zoneCountHorizontal" name="zoneCountHorizontal" type="number" required class="form-control input-md" size="35">
+</div>
+
+<p>Vertical Zone Count</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addMap.zoneCountVertical.$valid}">
+  <input ng-model="map.zoneCountVertical" name="zoneCountVertical" type="number" required class="form-control input-md" size="35">
+</div>
+
+<button style="margin-top: 20px;" type="submit" class="btn btn-white btn-rad btn-trans" ng-class="{'disabled' : !addMap.$valid}">Add</button>
+</fieldset>
+</form>

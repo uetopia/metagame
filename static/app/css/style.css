@@ -1,0 +1,104 @@
+.navbar-static-top {
+  margin-bottom: 19px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+h1 {
+  background-color: #A0785A;
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  font-weight:bold;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 3px solid #A0785A;
+    padding: 10px;
+    color: #A0785A;
+}
+
+.zoneTitle {
+  padding: 15px 0px 5px 0px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.seasonPositioning {
+  background-color: #729394;
+  padding: 10px;
+  color: white;
+  font-size: 18px;
+}
+
+.seasonCombat {
+  background-color: #CF8345;
+  padding: 10px;
+  color: white;
+  font-size: 18px;
+}
+
+.seasonResults {
+  background-color: #C2AC34;
+  padding: 10px;
+  color: white;
+  font-size: 18px;
+}
+
+.zoneUncontrolledByMe {
+  background-color: #729394;
+}
+
+.zoneUncontrolled {
+  background-color: #FADFAD;
+}
+
+.zoneControlled {
+  background-color: #D2B4AC;
+}
+
+.zoneInvalid {
+  background-color: #A0785A;
+}

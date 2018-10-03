@@ -1,0 +1,50 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+default_expiration: "1m"
+
+handlers:
+# Angular application.
+- url: /
+  static_files: static/app/index.html
+  upload: static/app/index.html
+  secure: always
+
+# Angular application files.
+- url: /app
+  static_dir: static/app
+  secure: always
+
+# Angular application test files.
+- url: /test
+  static_dir: static/test
+  secure: always
+
+# Cloud Endpoints handler, maps to "/_ah/api/<service>/<version>/<name>".
+- url: /_ah/api/.*
+  script: services.app
+  secure: always
+
+# TODO - secure the /task folder so that only admin and the tasks service can use it.
+
+- url: .*
+  script: main.app
+
+libraries:
+- name: endpoints
+  version: latest
+# The pycrypto library is used for OAuth 2, and is also a requirement for
+# APIs that wish to authenticate users.
+- name: pycrypto
+  version: latest
+- name: ssl
+  version: latest
+- name: webapp2
+  version: "2.5.2"
+- name: jinja2
+  version: "latest"
+
+env_variables:
+  # Replace with your Firebase project ID.
+  FIREBASE_PROJECT_ID: ''

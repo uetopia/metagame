@@ -1,0 +1,9 @@
+<h3>{{ faction.title }}</h3>
+<p>Energy: {{ faction.energy }}</p>
+<p>Materials: {{ faction.materials }}</p>
+<p>Control: {{ faction.control }}</p>
+
+<h3>Currently Controlled Zones</h3>
+<ul>
+  <li ng-repeat="zone in zones"><a ui-sref="mapDetail({regionKeyId:zone.regionKeyId, mapKeyId: zone.mapKeyId})">{{ zone.title }}</li>
+</ul>

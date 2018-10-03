@@ -1,0 +1,10 @@
+
+  <h3>Regions</h3>
+  <ul>
+    <li ng-repeat="region in regions" > <a ui-sref="regionDetail({regionKeyId:region.key_id})">{{ region.title }}</a> </li>
+  </ul>
+
+  <h3>Faction Leaderboard</h3>
+  <ul>
+    <li ng-repeat="faction in factions">{{ faction.control }} : <a ui-sref="factionDetail({factionKeyId:faction.key_id})">{{ faction.tag }}</a> </li>
+  </ul>

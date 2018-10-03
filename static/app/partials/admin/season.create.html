@@ -1,0 +1,41 @@
+<button style="margin-bottom: 20px;" class="btn btn-default" type="submit" ui-sref="home">Back to home</button>
+
+<form class="form-horizontal" ng-submit="submitAdd()" name="addSeason">
+<fieldset>
+
+
+
+<p>Title</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addSeason.title.$valid}">
+  <input ng-model="season.title" name="title" type="text" required class="form-control input-md">
+</div>
+
+<p>Description</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addSeason.description.$valid}">
+  <input ng-model="season.description" name="description" type="text" required class="form-control input-md">
+</div>
+
+<p>Starts</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addSeason.starts.$valid}">
+  <input ng-model="season.starts" name="starts" type="text" required class="form-control input-md" placeholder="YYYY/MM/DD HH:MM:SS" size="35">
+</div>
+
+<p>Ends</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addSeason.ends.$valid}">
+  <input ng-model="season.ends" name="ends" type="text" required class="form-control input-md" placeholder="YYYY/MM/DD HH:MM:SS" size="35">
+</div>
+
+<p>Active</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addSeason.active.$valid}">
+  <input ng-model="season.active" name="active" type="checkbox" >
+</div>
+
+
+<button style="margin-top: 20px;" type="submit" class="btn btn-white btn-rad btn-trans" ng-class="{'disabled' : !addSeason.$valid}">Add</button>
+</fieldset>
+</form>

@@ -1,0 +1,20 @@
+<button style="margin-bottom: 20px;" class="btn btn-default" type="submit" ui-sref="home">Back to home</button>
+
+<form class="form-horizontal" ng-submit="submitEdit()" name="editModel">
+<fieldset>
+
+<p>Name</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !editModel.name.$valid}">
+  <input ng-model="model.name" name="name" type="text" required class="form-control input-md">
+</div>
+
+<p>Description</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !editModel.description.$valid}">
+  <input ng-model="model.description" name="description" type="text" required class="form-control input-md">
+</div>
+
+<button style="margin-top: 20px;" type="submit" class="btn btn-white btn-rad btn-trans" ng-class="{'disabled' : !editModel.$valid}">Save</button>
+</fieldset>
+</form>

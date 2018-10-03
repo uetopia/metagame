@@ -1,0 +1,26 @@
+# Set the total storage limit for all queues to 120MB
+total_storage_limit: 120M
+queue:
+# Change the refresh rate of the default queue from 5/s to 10/s
+- name: default
+  rate: 500/s
+  bucket_size: 100
+  max_concurrent_requests: 10
+
+- name: firebaseUpdate
+  rate: 500/s
+  bucket_size: 40
+  retry_parameters:
+  max_concurrent_requests: 10
+
+- name: factionProcessBids
+  rate: 500/s
+  bucket_size: 40
+  retry_parameters:
+  max_concurrent_requests: 1
+
+- name: seasonStageChange
+  rate: 500/s
+  bucket_size: 1
+  retry_parameters:
+  max_concurrent_requests: 1

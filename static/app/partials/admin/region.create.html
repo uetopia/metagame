@@ -1,0 +1,46 @@
+<button style="margin-bottom: 20px;" class="btn btn-default" type="submit" ui-sref="home">Back to home</button>
+
+<form class="form-horizontal" ng-submit="submitAdd()" name="addRegion">
+<fieldset>
+
+
+
+<p>Title</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addRegion.title.$valid}">
+  <input ng-model="region.title" name="title" type="text" required class="form-control input-md">
+</div>
+
+<p>Description</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addRegion.description.$valid}">
+  <input ng-model="region.description" name="description" type="text" required class="form-control input-md">
+</div>
+
+<p>Datacenter Location</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addRegion.description.$valid}">
+  <select ng-model="region.datacenter_location" >
+    <option value="northamerica-northeast1">Northeast North America: Montreal, Canada</option>
+    <option value="us-west1">Western US:	 Oregon</option>
+    <option value="us-west2">Western US:  Los Angeles</option>
+    <option value="us-central1">Central US:	Iowa</option>
+    <option value="us-east1">Eastern US:	South Carolina</option>
+    <option value="us-east4">Eastern US: Northern Virginia</option>
+    <option value="southamerica-east1">Eastern South America: Sao Paulo, Brazil</option>
+    <option value="europe-north1">North Europe: Hamina, Finland</option>
+    <option value="europe-west1">Western Europe:	 Belgium</option>
+    <option value="europe-west2">Western Europe:	 London U.K.</option>
+    <option value="europe-west3">Western Europe:	 Frankfurt, Germany</option>
+    <option value="europe-west4">Western Europe:	 Eemshaven, Netherlands</option>
+    <option value="asia-south1">South Asia:	Mumbai, India</option>
+    <option value="asia-southeast1">Southeast Asia:	Singapore</option>
+    <option value="asia-east1">East Asia:	Changhua County, Taiwan</option>
+    <option value="asia-northeast1">Northeast Asia:	Tokyo</option>
+    <option value="australia-southeast1">Southeast Australia:	Sydney, Australia</option>
+</select>
+</div>
+
+<button style="margin-top: 20px;" type="submit" class="btn btn-white btn-rad btn-trans" ng-class="{'disabled' : !addRegion.$valid}">Add</button>
+</fieldset>
+</form>

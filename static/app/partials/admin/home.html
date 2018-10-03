@@ -1,0 +1,15 @@
+Admin Home
+
+<p><a ui-sref="adminMapCreate">Create a map</a></p>
+<p><a ui-sref="adminRegionCreate">Create a region</a></p>
+<p><a ui-sref="adminSeasonCreate">Create a season</a></p>
+
+<h3>Regions</h3>
+<ul>
+  <li ng-repeat="region in regions"> <a ui-sref="adminRegionDetail({regionKeyId:region.key_id})">{{ region.title }} </a></li>
+</ul>
+
+<h3>Seasons</h3>
+<ul>
+  <li ng-repeat="season in seasons"> <a ui-sref="adminSeasonDetail({seasonKeyId:season.key_id})">{{ season.title }} </a></li>
+</ul>

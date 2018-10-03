@@ -1,0 +1,79 @@
+<button style="margin-bottom: 20px;" class="btn btn-default" type="submit" ui-sref="home">Back to home</button>
+
+<form class="form-horizontal" name="updateSeason">
+<fieldset>
+
+
+
+<p>Title</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !updateSeason.title.$valid}">
+  <input ng-model="season.title" name="title" type="text" required class="form-control input-md">
+</div>
+
+<p>Description</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !updateSeason.description.$valid}">
+  <input ng-model="season.description" name="description" type="text" required class="form-control input-md">
+</div>
+
+<p>Starts</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !updateSeason.starts.$valid}">
+  <input ng-model="season.starts" name="starts" type="text" required class="form-control input-md" placeholder="YYYY/MM/DD HH:MM:SS" size="35">
+</div>
+
+<p>Ends</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !updateSeason.ends.$valid}">
+  <input ng-model="season.ends" name="ends" type="text" required class="form-control input-md" placeholder="YYYY/MM/DD HH:MM:SS" size="35">
+</div>
+
+<p>Active</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !updateSeason.active.$valid}">
+  <input ng-model="season.active" name="active" type="checkbox" >
+</div>
+
+<p>Closing</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !updateSeason.closing.$valid}">
+  <input ng-model="season.closing" name="closing" type="checkbox" >
+</div>
+
+<p>Next</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !updateSeason.next.$valid}">
+  <input ng-model="season.next" name="next" type="checkbox" >
+</div>
+
+<p>currentRound</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !updateSeason.currentRound.$valid}">
+  <input ng-model="season.currentRound" name="currentRound" type="number" required class="form-control input-md" >
+</div>
+
+<p>currentRoundPositioning</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !updateSeason.currentRoundPositioning.$valid}">
+  <input ng-model="season.currentRoundPositioning" name="currentRoundPositioning" type="checkbox" >
+</div>
+
+<p>currentRoundCombat</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !updateSeason.currentRoundCombat.$valid}">
+  <input ng-model="season.currentRoundCombat" name="currentRoundCombat" type="checkbox" >
+</div>
+
+<p>currentRoundResults</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !updateSeason.currentRoundResults.$valid}">
+  <input ng-model="season.currentRoundResults" name="currentRoundResults" type="checkbox" >
+</div>
+
+<div>
+  <button type="submit" ng-click="submitUpdate(updateSeason)" >Save</button>
+</div>
+
+</fieldset>
+</form>
