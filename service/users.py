@@ -278,7 +278,7 @@ class UsersApi(remote.Service):
         # this security code will be erased regardless of the results of this request, so if it failed, the user must start over with a new code.
 
 
-        uri = "/api/v1/game/metagame/verify" 
+        uri = "/api/v1/game/metagame/verify"
 
         params = OrderedDict([
                   ("nonce", time.time()),
@@ -316,9 +316,11 @@ class UsersApi(remote.Service):
             response = ClientConnectResponse(
                 user_id = claims['user_id'],
                 uetopia_connected = False,
-                response_message='Verification failed.',
+                response_message='Verification failed.  %s' %jsonobject['error'],
                 response_successful=False
             )
+
+            return response
 
         logging.info('validation was successful')
 
@@ -381,8 +383,15 @@ class UsersApi(remote.Service):
 
             authorized_user.currentFactionKeyId = faction.key.id()
             authorized_user.currentFactionTag = jsonobject['group_tag']
-            authorized_user.currentFactionLead = jsonobject['metagame_faction_lead']
-            authorized_user.currentFactionTeamLead = jsonobject['metagame_team_lead']
+            try:
+                authorized_user.currentFactionLead = jsonobject['metagame_faction_lead']
+            except:
+                authorized_user.currentFactionLead = False
+
+            try:
+                authorized_user.currentFactionTeamLead = jsonobject['metagame_team_lead']
+            except:
+                authorized_user.currentFactionTeamLead = False
 
 
         uController.update(authorized_user)
