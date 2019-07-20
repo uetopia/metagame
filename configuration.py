@@ -86,3 +86,52 @@ ROUND_DURATION_RESULTS = 150
 ## Disabling automatic phase changing is helpful for testing and debugging.
 ## Hit this url when you want to advance the phase manually:  https://[projectname].appspot.com/task/season/stage_change
 AUTOMATIC_PHASE_CHANGE = False
+
+
+
+CURRENT_SEASON_WINNER_DROP_DATA = {
+    "ItemId": "",
+	"ItemTitle": "Example Drop",
+	"ItemDescription": "",
+	"Quantity": 1,
+	"DTID": 1021,
+	"attributes": [
+		{
+			"0": 1.25
+		},
+		{
+			"1": 1.25
+		},
+		{
+			"2": 1.25
+		},
+		{
+			"3": 1.25
+		},
+		{
+			"4": 1.25
+		},
+		{
+			"5": 1.25
+		},
+		{
+			"6": 1.25
+		},
+		{
+			"7": 1.25
+		},
+		{
+			"8": 1.25
+		},
+		{
+			"9": 1.25
+		}
+	]
+}
+
+CURRENT_SEASON_WINNER_DROP = {
+    'title': 'Season Winner',
+    'description': 'Example Drop',
+    'uiIcon': 'Gear',
+    'data': json.dumps(CURRENT_SEASON_NEW_USER_JOINED_DROP_DATA)
+}

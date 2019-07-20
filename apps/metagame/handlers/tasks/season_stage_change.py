@@ -465,78 +465,18 @@ class SeasonStageChangeHandler(BaseHandler):
 
                                 for faction_lead in faction_leaders:
                                     logging.info('found a faction lead')
-                                    ####################################
-                                    ## get the faction leader game player from UETOPIA remote API
-                                    ####################################
-                                    uri = "/api/v1/game/metagame/user/get"
 
-                                    params = OrderedDict([
-                                              ("nonce", time.time()),
-                                              ("encryption", "sha512"),
-                                              ("playerKeyId", faction_lead.uetopia_playerKeyId )
-                                              ])
+                                    ## DO DROPS
 
-                                    params = urllib.urlencode(params)
-
-                                    # Hash the params string to produce the Sign header value
-                                    H = hmac.new(UETOPIA_ASSIGNED_GAME_API_SECRET, digestmod=hashlib.sha512)
-                                    H.update(params)
-                                    sign = H.hexdigest()
-
-                                    headers = {"Content-type": "application/x-www-form-urlencoded",
-                                                       "Key":UETOPIA_ASSIGNED_GAME_API_KEY,
-                                                       "Sign":sign}
-
-                                    conn = httplib.HTTPSConnection(UETOPIA_API_URL)
-
-                                    conn.request("POST", uri, params, headers)
-                                    response = conn.getresponse()
-
-                                    #logging.info(response.read())
-
-                                    ## parse the response
-                                    jsonstring = str(response.read())
-                                    logging.info(jsonstring)
-                                    jsonobject = json.loads(jsonstring)
-
-                                    amount_to_add = materials_earned_for_each_leader
-
-                                    if not remainder_added:
-                                        logging.info('adding remainder')
-                                        amount_to_add = amount_to_add + materials_remainder
-                                        remainder_added = True
-
-                                    existing_materials = 0
-
-                                    if 'inventory' in jsonobject:
-                                        logging.info('found inventory in json')
-                                        if jsonobject['inventory']:  # if unset, this will be null.
-                                            inventory_parsed = json.loads(jsonobject['inventory'])
-                                            if 'materials' in inventory_parsed:
-                                                logging.info('found materials in inventory')
-                                                existing_materials = inventory_parsed['materials']
-                                            else:
-                                                inventory_parsed = {'materials': 0}
-                                        else:
-                                            inventory_parsed = {'materials': 0}
-                                    else:
-                                        inventory_parsed = {'materials': 0}
-
-                                    new_materials = existing_materials + amount_to_add
-                                    logging.info('new_materials: %s' % new_materials)
-                                    inventory_parsed['materials'] = new_materials
-
-                                    #######################################
-                                    ## update the game player record on UETOPIA remote API
-                                    #######################################
-
-                                    uri = "/api/v1/game/metagame/user/update"
+                                    uri = "/api/v1/game/player/%s/drops/create" % faction_lead.uetopia_playerKeyId
 
                                     json_values = ({
                                         u'nonce': time.time(),
                                         u'encryption': "sha512",
-                                        u'playerKeyId': faction_lead.uetopia_playerKeyId,
-                                        u'inventory': json.dumps(inventory_parsed)
+                                        u'title': CURRENT_SEASON_WINNER_DROP['title'],
+                                        u'description': CURRENT_SEASON_WINNER_DROP['description'],
+                                        u'uiIcon': CURRENT_SEASON_WINNER_DROP['uiIcon'],
+                                        u'data': CURRENT_SEASON_WINNER_DROP['data']
                                         })
 
                                     entity_json = json.dumps(json_values)
