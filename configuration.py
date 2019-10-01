@@ -1,3 +1,4 @@
+import json
 import datetime
 
 WEB_CLIENT_ID = ''
@@ -133,5 +134,5 @@ CURRENT_SEASON_WINNER_DROP = {
     'title': 'Season Winner',
     'description': 'Example Drop',
     'uiIcon': 'Gear',
-    'data': json.dumps(CURRENT_SEASON_NEW_USER_JOINED_DROP_DATA)
+    'data': json.dumps(CURRENT_SEASON_WINNER_DROP_DATA)
 }
