@@ -1,19 +1,21 @@
 import json
 import datetime
 
-WEB_CLIENT_ID = ''
-WEB_CLIENT_AUTOCREATED_BY_GOOGLE = ''
+WEB_CLIENT_ID = '' ## created by google.  Usually ends in .apps.googleusercontent.com
+WEB_CLIENT_AUTOCREATED_BY_GOOGLE = '' ## created by google.  Usually ends in .apps.googleusercontent.com
 GOOGLE_SERVER_API_KEY = ''
 
 ADMIN_DISCORD_WEBHOOK = ""
+ACHIEVEMENT_DISCORD_WEBHOOK = ""
+MATCH_RESULTS_DISCORD_WEBHOOK = ""
 
 UETOPIA_API_URL = "api-dot-ue4topia.appspot.com"
 UETOPIA_ASSIGNED_GAME_ID = ""
 UETOPIA_ASSIGNED_GAME_API_KEY = ""
 UETOPIA_ASSIGNED_GAME_API_SECRET = ""
-UETOPIA_ASSIGNED_GAME_MODE_ID = ""
+UETOPIA_ASSIGNED_GAME_MODE_ID = "" # the game mode that corresponds to your metagame mode.
 
-FIREBASE_DATABASE_ROOT = "https://yourproject.firebaseio.com"
+FIREBASE_DATABASE_ROOT = "https://ue4topia-metagame.firebaseio.com"
 
 ## Zone types determine how maps are built.  These reference the actual game level to load when a match takes place in this zone.
 ## minimum and maximum values are rolled when the actual zone is created based on these values.

@@ -30,6 +30,17 @@ controller.controller('angular-google-api-example.controller.admin.home', ['$sco
             console.log('error');
           });
 
+      // Load Achievements
+      endpoints.post('achievements', 'collectionGet')
+          .then(function(response) {
+              // DONE!
+              console.log(response);
+              $scope.achievements = response.achievements
+          }, function() {
+            // ERROR!
+            console.log('error');
+          });
+
 
 
     }

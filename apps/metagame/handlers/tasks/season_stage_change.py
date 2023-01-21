@@ -30,6 +30,7 @@ from apps.metagame.controllers.users import UsersController
 from apps.metagame.controllers.bids import BidsController
 from apps.metagame.controllers.factions import FactionsController
 from apps.metagame.controllers.match import MatchController
+from apps.metagame.controllers.achievements import AchievementsController
 
 from configuration import *
 
@@ -55,6 +56,7 @@ class SeasonStageChangeHandler(BaseHandler):
         factionsController = FactionsController()
         matchController = MatchController()
         usersController = UsersController()
+        achievementController = AchievementsController()
 
         season = seasonController.get_active()
         if not season:
@@ -522,6 +524,13 @@ class SeasonStageChangeHandler(BaseHandler):
                 ## set the season to inactive.
                 season.active = False
                 seasonController.update(season)
+
+                ## also switch off all achievement season_first_awarded
+                achievements = achievementController.list()
+                for achievement in achievements:
+                    achievements.season_first_awarded = False
+                    achievementController.update(achievementController)
+
 
                 ## also dump firebase values for factions and active_season
 

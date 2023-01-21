@@ -54,14 +54,15 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <!-- show title if logged in -->
+            <li class="ng-cloak">
+              <a href="#/characters/">LEADERS</a>
+            </li>
             <li class="ng-cloak" ng-show="userAccount.admin">
               <a ui-sref="adminHome">Admin</a>
             </li>
             <li class="ng-cloak" ng-show="userAccount">
-
               <!-- show session data -->
               <a ng-show="userAccount" href="#/profile"><md-button> {{ userAccount.title }}</md-button></a>
-
             </li>
             <li class="ng-cloak" ng-show="user">
               <a href="" ng-click="logout()">logout</a></li>
@@ -141,6 +142,9 @@
     <script src="/app/js/controller.map.detail.js"></script>
 
     <script src="/app/js/controller.edit.js"></script>
+    <script src="/app/js/controller.characters.js"></script>
+    <script src="/app/js/controller.character.detail.js"></script>
+    <script src="/app/js/controller.match.detail.js"></script>
 
     <script src="/app/js/admin/controller.admin.home.js"></script>
 
@@ -152,6 +156,9 @@
 
     <script src="/app/js/admin/controller.map.create.js"></script>
     <script src="/app/js/admin/controller.map.detail.js"></script>
+
+    <script src="/app/js/admin/controller.achievement.create.js"></script>
+    <script src="/app/js/admin/controller.achievement.detail.js"></script>
 
     <script src="/app/js/controller.faction.detail.js"></script>
 

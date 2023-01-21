@@ -1,0 +1,29 @@
+<span class="chatacterTitle">{{ match.matchType }} {{ match.mapTitle}} : {{ match.winningTeamTitle }} > {{ match.losingTeamTitle }}</span>
+
+<h2> {{ match.winningTeamTitle }}</h2>
+
+<div ng-repeat="winningTeamMember in winningTeam">
+<span class="chatacterTitle"><a  ui-sref="characterDetail({characterKeyId: winningTeamMember.characterKeyId})">{{ winningTeamMember.title }}</a></span>
+<span class="statisticsNumber">{{ winningTeamMember.rank }}</span><span class="statisticsTag">rank </span>
+<span class="statisticsNumber">{{ winningTeamMember.kills }}/{{ winningTeamMember.deaths }}</span><span class="statisticsTag">k/d</span>
+<span class="statisticsNumber">{{ winningTeamMember.assists }}</span><span class="statisticsTag">assists </span>
+<br>
+<span class="statisticsNumber">{{ winningTeamMember.damage_dealt }}</span><span class="statisticsTag">damage done </span>
+<span class="statisticsNumber">{{ winningTeamMember.damage_received }}</span><span class="statisticsTag">damage rcvd </span>
+</div>
+<br><br>
+<br>
+<h2> {{ match.losingTeamTitle }}</h2>
+<div ng-repeat="losingTeamMember in losingTeam">
+<span class="chatacterTitle"><a  ui-sref="characterDetail({characterKeyId: losingTeamMember.characterKeyId})">{{ losingTeamMember.title }}</a></span>
+<span class="statisticsNumber">{{ losingTeamMember.rank }}</span><span class="statisticsTag">rank </span>
+<span class="statisticsNumber">{{ losingTeamMember.kills }}/{{ losingTeamMember.deaths }}</span><span class="statisticsTag">k/d</span>
+<span class="statisticsNumber">{{ losingTeamMember.assists }}</span><span class="statisticsTag">assists </span>
+<br>
+<span class="statisticsNumber">{{ losingTeamMember.damage_dealt }}</span><span class="statisticsTag">damage done </span>
+<span class="statisticsNumber">{{ losingTeamMember.damage_received }}</span><span class="statisticsTag">damage rcvd </span>
+</div>
+<br><br>
+<h2>Match Highlights</h2>
+
+  <p ng-repeat="matchStoryLine in matchStoryLines track by $index">{{ matchStoryLine }}</p>

@@ -52,6 +52,36 @@ router
                     },
                 })
 
+                .state('characters', {
+                    url :'/characters/',
+                    views :  {
+                        '': {
+                            controller: 'angular-google-api-example.controller.characters',
+                            templateUrl: '/app/partials/characters.html',
+                        },
+                    },
+                })
+
+                .state('characterDetail', {
+                    url :'/characters/:characterKeyId',
+                    views :  {
+                        '': {
+                            controller: 'angular-google-api-example.controller.character.detail',
+                            templateUrl: '/app/partials/character.detail.html',
+                        },
+                    },
+                })
+
+                .state('matchDetail', {
+                    url :'/matches/:matchKeyId',
+                    views :  {
+                        '': {
+                            controller: 'angular-google-api-example.controller.match.detail',
+                            templateUrl: '/app/partials/match.detail.html',
+                        },
+                    },
+                })
+
                 .state('edit', {
                     url :'/edit/{id}',
                     views :  {
@@ -135,6 +165,26 @@ router
                         '': {
                             controller: 'angular-google-api-example.controller.admin.map.detail',
                             templateUrl: '/app/partials/admin/map.detail.html',
+                        },
+                    },
+                })
+
+                .state('adminAchievementCreate', {
+                    url :'/admin/achievement_create',
+                    views :  {
+                        '': {
+                            controller: 'angular-google-api-example.controller.admin.achievement.create',
+                            templateUrl: '/app/partials/admin/achievement.create.html',
+                        },
+                    },
+                })
+
+                .state('adminAchievementDetail', {
+                    url :'/admin/achievements/:achievementKeyId',
+                    views :  {
+                        '': {
+                            controller: 'angular-google-api-example.controller.admin.achievement.detail',
+                            templateUrl: '/app/partials/admin/achievement.detail.html',
                         },
                     },
                 })

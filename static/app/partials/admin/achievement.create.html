@@ -1,0 +1,94 @@
+<button style="margin-bottom: 20px;" class="btn btn-default" type="submit" ui-sref="home">Back to home</button>
+
+<form class="form-horizontal" ng-submit="submitAdd()" name="addAchievement">
+<fieldset>
+
+
+
+<p>Title</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addAchievement.title.$valid}">
+  <input ng-model="achievement.title" name="title" type="text" required class="form-control input-md">
+</div>
+
+<p>Description</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addAchievement.description.$valid}">
+  <input ng-model="achievement.description" name="description" type="text" required class="form-control input-md">
+</div>
+<br><br>
+<p>iconUrl</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addAchievement.iconUrl.$valid}">
+  <input ng-model="achievement.iconUrl" name="iconUrl" type="text" class="form-control input-md">
+</div>
+<br><br>
+<p>drop_json</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addAchievement.drop_json.$valid}">
+  <textarea ng-model="achievement.drop_json" name="drop_json" type="text"  class="form-control input-md"></textarea>
+</div>
+<p>Drop Tier</p>
+<!-- Number input-->
+<div class="input-group" ng-class="{'has-error' : !addAchievement.drop_tier.$valid}">
+  <input ng-model="achievement.drop_tier" name="drop_tier" type="number"  class="form-control input-md" size="35">
+</div>
+<br><br>
+
+<br><br>
+<p>calculation</p>
+<!-- Text input-->
+<div class="input-group" ng-class="{'has-error' : !addAchievement.calculation.$valid}">
+  <input ng-model="achievement.calculation" name="calculation" type="text" required class="form-control input-md">
+</div>
+<br><br>
+<p>Calculation Integer</p>
+<!-- Number input-->
+<div class="input-group" ng-class="{'has-error' : !addAchievement.calculation_int.$valid}">
+  <input ng-model="achievement.calculation_int" name="calculation_int" type="number" required class="form-control input-md" size="35">
+</div>
+<br><br>
+
+<p>unknown</p>
+<!-- bool input-->
+<div class="input-group" ng-class="{'has-error' : !addAchievement.unknown.$valid}">
+  <input ng-model="achievement.unknown" name="unknown" type="checkbox" >
+</div>
+<br><br>
+
+<p>hidden</p>
+<!-- bool input-->
+<div class="input-group" ng-class="{'has-error' : !addAchievement.hidden.$valid}">
+  <input ng-model="achievement.hidden" name="hidden" type="checkbox" >
+</div>
+<br><br>
+<p>do_drop</p>
+<!-- bool input-->
+<div class="input-group" ng-class="{'has-error' : !addAchievement.do_drop.$valid}">
+  <input ng-model="achievement.do_drop" name="do_drop" type="checkbox" >
+</div>
+
+<br><br>
+<p>seasonal</p>
+<!-- bool input-->
+<div class="input-group" ng-class="{'has-error' : !addAchievement.seasonal.$valid}">
+  <input ng-model="achievement.seasonal" name="seasonal" type="checkbox" >
+</div>
+
+<br><br>
+<p>execute every match individually</p>
+<!-- bool input-->
+<div class="input-group" ng-class="{'has-error' : !addAchievement.execute_per_match.$valid}">
+  <input ng-model="achievement.execute_per_match" name="execute_per_match" type="checkbox" >
+</div>
+<br><br>
+<p>execute after all of the matches have been processed - total</p>
+<!-- bool input-->
+<div class="input-group" ng-class="{'has-error' : !addAchievement.execute_all_matches.$valid}">
+  <input ng-model="achievement.execute_all_matches" name="execute_all_matches" type="checkbox" >
+</div>
+
+
+<button style="margin-top: 20px;" type="submit" class="btn btn-white btn-rad btn-trans" ng-class="{'disabled' : !addAchievement.$valid}">Add</button>
+</fieldset>
+</form>

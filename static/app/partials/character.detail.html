@@ -1,0 +1,46 @@
+<span class="chatacterTitle">{{ character.title }}</span>
+
+<br><br>
+
+<span class="statisticsNumber">{{ character.rank }}</span> <span class="statisticsTag">rank </span>
+<span class="statisticsNumber">{{ character.kdratio }}</span> <span class="statisticsTag">k/d </span>
+<span class="statisticsNumber">{{ character.winratio }}</span> <span class="statisticsTag">win </span>
+
+<br>
+<span class="statisticsNumber">{{ character.kills_avg }}</span> <span class="statisticsTag">kills/match</span>
+<span class="statisticsNumber">{{ character.assists_avg }}</span> <span class="statisticsTag">assists/match </span>
+<span class="statisticsNumber">{{ character.deaths_avg }}</span> <span class="statisticsTag">deaths/match </span>
+
+<br>
+<span class="statisticsNumber">{{ character.capture_time }}</span> <span class="statisticsTag">capture time </span>
+<span class="statisticsNumber">{{ character.score }}</span> <span class="statisticsTag">score </span>
+<span class="statisticsNumber">{{ character.level }}</span> <span class="statisticsTag">level </span>
+<br>
+<br>
+<span class="statisticsNumber">{{ character.matches_won }} / {{ character.matches_played - character.matches_won }}</span> <span class="statisticsTag">season w/l </span>
+<span class="statisticsNumber">{{ character.damage_dealt_avg }}</span> <span class="statisticsTag">damage/match </span>
+
+
+<br><br>
+
+<span class="statisticsNumber">{{ character.mm1v1_won }} / {{ character.mm1v1_played - character.mm1v1_won }}</span> <span class="statisticsTag">1v1 </span>
+<span class="statisticsNumber">{{ character.mm2v2_won }} / {{ character.mm2v2_played - character.mm2v2_won }}</span> <span class="statisticsTag">2v2 </span>
+<span class="statisticsNumber">{{ character.mm3v3_won }} / {{ character.mm3v3_played - character.mm3v3_won }}</span> <span class="statisticsTag">3v3 </span>
+<span class="statisticsNumber">{{ character.mm4v4_won }} / {{ character.mm4v4_played - character.mm4v4_won }}</span> <span class="statisticsTag">4v4 </span>
+
+
+
+<h3>Career Achievements</h3>
+<ul>
+  <li ng-repeat="achievement in achievements"><span ng-if="achievement.first">[ WORLD FIRST ]</span> {{ achievement.title }} </li>
+</ul>
+
+<h3>Season Achievements</h3>
+<ul>
+  <li ng-repeat="achievement in season_achievements"><span ng-if="achievement.season_first">[ SEASON FIRST ]</span> {{ achievement.title }}</li>
+</ul>
+
+<h3>Recent Matches</h3>
+<ul>
+  <li ng-repeat="match in matches"><span ng-if="match.matches_won > 0">[ WIN ]</span> <a  ui-sref="matchDetail({matchKeyId:match.mmmatchKeyId})"> {{ match.matchType }} {{ match.mapTitle }}  </a> </li>
+</ul>

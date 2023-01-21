@@ -187,13 +187,13 @@ class ZonesApi(remote.Service):
             logging.info('no user record found')
             return ZoneCollection(response_message='Error: No User Record Found. ', response_successful=False)
 
-        if not authorized_user.admin:
-            logging.info('no admin record found')
-            return ZoneCollection(response_message='Error: No Admin Record Found. ', response_successful=False)
+        #if not authorized_user.admin:
+        #    logging.info('no admin record found')
+        #    return ZoneCollection(response_message='Error: No Admin Record Found. ', response_successful=False)
 
         zoneController = ZonesController()
 
-        entities = zoneController.list_by_mapKeyId(request.mapKeyId)
+        entities = zoneController.list_by_mapKeyId(int(request.mapKeyId))
         entity_list = []
 
         for entity in entities:

@@ -1,0 +1,9 @@
+<h3>INDIVIDUAL LEADERBOARD</h3>
+<p>Global Top Players</p>
+
+
+
+
+<ul>
+  <li ng-repeat="character in characters"> <b> {{ character.rank }} </b> <a  ui-sref="characterDetail({characterKeyId:character.key_id})">{{ character.title }}</a> </li>
+</ul>

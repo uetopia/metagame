@@ -24,3 +24,9 @@ queue:
   bucket_size: 1
   retry_parameters:
   max_concurrent_requests: 1
+
+- name: UserStatisticsCalculate
+  rate: 500/s
+  bucket_size: 40
+  retry_parameters:
+  max_concurrent_requests: 10
