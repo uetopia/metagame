@@ -1,3 +1,7 @@
+# DEPRECATED
+
+Use [unlockd metagame](https://github.com/unlockd-gg/metagame) instead.
+
 uetopia-metagame
 ======================
 
